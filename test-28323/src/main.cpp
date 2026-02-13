@@ -1,31 +1,26 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-int main (int argc, char* argv[]) {
+int main() {
+    ios::sync_with_stdio(false); cin.tie(NULL);
     int n;
     cin >> n;
-    int answer = 0;
-    bool status;
-    vector<bool> v(n);
-    for(int i = 0; i < n; ++i){
+
+    int first;
+    cin >> first;
+    
+    int answer = 1;
+    int status = first % 2;
+
+    for(int i = 1; i < n; ++i) {
         int input;
         cin >> input;
-        if(input % 2 == 0){
-            v[i] = 0;
-        }
-        else{
-            v[i] = 1;
+        if(input % 2 != status) {
+            answer++;
+            status = input % 2;
         }
     }
-    status = 0;
-
-    for(int i = 0; i < n; ++i){
-        if(v[i] != status){
-            ++answer;
-            status = v[i];
-        }
-    }
-    cout << answer + 1 << '\n';
+    cout << answer << '\n';
+    return 0;
 }
