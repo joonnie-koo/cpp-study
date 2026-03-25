@@ -1,10 +1,14 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <cmath>
+#include <iomanip>
 
 using namespace std;
 
 int main (int argc, char* argv[]) {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int n;
     cin >> n;
     double input[n];
@@ -22,6 +26,6 @@ int main (int argc, char* argv[]) {
             max = dp[i];
         }
     }
-    printf("%.3f",max);
+    cout << fixed << setprecision(3) << max << '\n';
     return 0;
 }
